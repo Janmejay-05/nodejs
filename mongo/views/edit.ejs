@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>registration form</h1>
+    <form action="/update" method="post">
+      <table>
+        <tr>
+          <td></td>
+          <td>
+            <input hidden value="<%= id %>" type="text" name="id" />
+          </td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td>
+            <input value="<%= data.userName %>" type="text" name="userName" />
+          </td>
+        </tr>
+        <tr>
+          <td>email</td>
+          <td><input value="<%= data.email %>" type="email" name="email" /></td>
+        </tr>
+        <tr>
+          <td>password</td>
+          <td>
+            <input
+              type="password"
+              value="<%= data.password %>"
+              name="password"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>city</td>
+          <td>
+            <select name="city" id="">
+              <option value="Ahmedabad">Ahmedabad</option>
+              <option value="Rajkot">Rajkot</option>
+              <option value="Surendranagar">Surendranagar</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>gender</td>
+          <td>
+            <input type="radio" name="gender" value="male" <%=
+            data.gender=="male"?"checked":"" %> />male <input type="radio"
+            name="gender" value="female" <%= data.gender=="female"?"checked":""
+            %> />female
+          </td>
+        </tr>
+        <tr>
+          <td>image</td>
+          <td><input type="file" name="image" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button>submit</button></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

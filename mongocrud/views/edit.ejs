@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Edit your data</h1>
+    <form action="/updateData" method="post" enctype="multipart/form-data">
+      <table border="">
+        <tr>
+          <td>userName</td>
+          <td>
+            <input hidden type="text" name="id" value="<%= data._id %>">
+            <input name="userName" type="text" value="<%= data.userName %>" />
+          </td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><input name="email" type="email" value="<%= data.email %>" /></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td>
+            <input
+              name="password"
+              type="password"
+              value="<%= data.password %>"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>City</td>
+          <td>
+            <select name="city" id="">
+              <option value="Ahmedabad"  <%= data.city=="Ahmedabad"?"selected":"" %>>Ahmedabad</option>
+              <option value="Vadodra"  <%= data.city=="Vadodra"?"selected":"" %>>Vadodra</option>
+              <option value="Morbi"  <%= data.city=="Morbi"?"selected":"" %>>Morbi</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Gneder</td>
+          <td>
+            <input type="radio" name="gender" value="male" <%= data.gender=="male"?"checked":"" %> /> male
+            <input type="radio" name="gender" value="female"  <%= data.gender=="female"?"checked":"" %> /> female
+          </td>
+        </tr>
+        <tr>
+          <td>hobby</td>
+          <td>
+            <input name="hobby" type="checkbox" value="volleyball" <%= data.hobby.includes("volleyball")?"checked":"" %> /> volleyball
+            <input name="hobby" type="checkbox" value="coding" <%= data.hobby.includes("coding")?"checked":"" %> /> coding
+            <input name="hobby" type="checkbox" value="reading" <%= data.hobby.includes("reading")?"checked":"" %> /> reading
+          </td>
+        </tr>
+         <tr>
+          <td>image</td>
+          <td>
+            <input type="file" name="image" id="">
+            <img src="<%= data.image %>" height="100px" width="100px" alt="">
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button>submit</button></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

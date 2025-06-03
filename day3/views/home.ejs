@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Welcome to home page</h1>
+
+    <h2>form</h2>
+    <table>
+      <form action="/userData" method="post">
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td><input type="text" name="userName" /></td>
+          </tr>
+          <tr>
+            <td>Age</td>
+            <td><input type="text" name="age" /></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="submit" /></td>
+          </tr>
+        </tbody>
+      </form>
+    </table>
+
+    <h2>data</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th colspan="2">events</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach((item,index)=>{%>
+
+        <tr>
+          <td><%= item.userName %></td>
+          <td><%= item.age %></td>
+          <td><a href="/userData/<%= index %>"><button>Delete</button></a></td>
+          <td><a href="/edit/<%=index  %>"><button>Edit</button></a></td>
+        </tr>
+
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>

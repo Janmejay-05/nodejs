@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>registration form</h1>
+    <form action="/userData" method="post">
+      <table>
+        <tr>
+          <td>Name</td>
+          <td><input type="text" name="userName" /></td>
+        </tr>
+        <tr>
+          <td>email</td>
+          <td><input type="email" name="email" /></td>
+        </tr>
+        <tr>
+          <td>password</td>
+          <td><input type="password" name="password" /></td>
+        </tr>
+        <tr>
+          <td>city</td>
+          <td>
+            <select name="city" id="">
+              <option value="Ahmedabad">Ahmedabad</option>
+              <option value="Rajkot">Rajkot</option>
+              <option value="Surendranagar">Surendranagar</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>gender</td>
+          <td>
+            <input type="radio" name="gender" value="male" />male
+            <input type="radio" name="gender" value="female" />female
+          </td>
+        </tr>
+        <tr>
+          <td>image</td>
+          <td><input type="file" name="image" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><button>submit</button></td>
+        </tr>
+      </table>
+    </form>
+
+    <hr />
+    <table border="">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>email</th>
+          <th>password</th>
+          <th>city</th>
+          <th>gender</th>
+          <th>image path</th>
+          <th colspan="2">Events</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% allUserData.forEach((item)=>{ %>
+        <tr>
+          <td><%= item.userName %></td>
+          <td><%= item.email %></td>
+          <td><%= item.password %></td>
+          <td><%= item.city %></td>
+          <td><%= item.gender %></td>
+          <td><%= item.image %></td>
+          <td>
+            <a href="/delete/<%=item.id%>"><button>delete</button></a>
+          </td>
+          <td>
+            <a href="/edit/<%= item.id %>"><button>edit</button></a>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>
